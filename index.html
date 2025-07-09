@@ -1,11 +1,158 @@
 <!DOCTYPE html>
-<html>
-<head>
-  <meta charset="UTF-8">
-  <title>はじめてのホームページ</title>
-</head>
-<body>
-  <h1>こんにちは！</h1>
-  <p>これはあなたの初めてのホームページです。</p>
-</body>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <title>スパイスの歴史と電脳世界</title>
+    <style>
+      body {
+        margin: 0;
+        font-family: "Courier New", monospace;
+        color: #fff;
+        background: linear-gradient(90deg, #222, #000, #222);
+        background-size: 400% 400%;
+        animation: backgroundShift 10s infinite alternate;
+        overflow-x: hidden;
+      }
+
+      h1 {
+        text-align: center;
+        margin-top: 2rem;
+        font-size: 3rem;
+        text-shadow: 0 0 10px #0ff, 0 0 20px #0ff;
+        animation: flicker 3s infinite;
+      }
+
+      .content {
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 1rem 2rem;
+        line-height: 1.8;
+      }
+
+      p {
+        margin-bottom: 1.5rem;
+      }
+
+      body::before {
+        content: "";
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        pointer-events: none;
+        background: repeating-linear-gradient(
+          45deg,
+          rgba(0, 255, 255, 0.15) 0px,
+          rgba(0, 255, 255, 0.15) 2px,
+          transparent 2px,
+          transparent 4px
+        );
+        animation: scanlines 1s steps(30) infinite;
+      }
+
+      .particle {
+        position: fixed;
+        width: 8px;
+        height: 8px;
+        background: rgba(0, 255, 255, 0.7);
+        box-shadow: 0 0 10px #0ff;
+        border-radius: 50%;
+        animation: float 8s linear infinite;
+      }
+
+      @keyframes backgroundShift {
+        from {
+          background-position: 0 0;
+        }
+        to {
+          background-position: 100% 0;
+        }
+      }
+
+      @keyframes flicker {
+        0%,
+        19%,
+        21%,
+        23%,
+        25%,
+        54%,
+        56%,
+        100% {
+          opacity: 1;
+          text-shadow: 0 0 5px #0ff, 0 0 15px #0ff;
+        }
+        20%,
+        24%,
+        55% {
+          opacity: 0.3;
+          text-shadow: none;
+        }
+      }
+
+      @keyframes float {
+        from {
+          transform: translateY(0) rotate(0deg);
+        }
+        to {
+          transform: translateY(-100vh) rotate(360deg);
+        }
+      }
+
+      @keyframes scanlines {
+        from {
+          background-position: 0 0;
+        }
+        to {
+          background-position: 0 2px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <h1>スパイスの歴史</h1>
+    <div class="content">
+      <p>
+        スパイスは古代より人類の料理や交易を支えてきた。かつて遥か東西を結んだ
+        シルクロードは、香り高い粒や葉が国境を越える大動脈だった。エキゾチックな
+        その香気は王侯貴族から庶民に至るまで多くの人を惹きつけ、時に富の象徴として
+        もてはやされた。
+      </p>
+      <p>
+        紀元前のエジプトでは、ミイラ作りにもシナモンやミルラが使われ、旅路を経て
+        運ばれるスパイスは神聖な儀式の要となった。古代ローマでは黒胡椒が黄金と同等
+        の価値を持ち、戦争の賠償金として納められた例もある。こうした歴史は、香辛料
+        がいかに貴重なものであったかを物語っている。
+      </p>
+      <p>
+        中世ヨーロッパにおいては、胡椒やクローブを求めて大航海時代が幕を開けた。
+        新たな航路が開拓されるにつれ、スパイスは世界中へと広まり、食文化だけでなく
+        医療や宗教儀式にも深く関わるようになる。その背後では、香りに魅了された商人
+        たちが莫大な利益を上げ、都市はかつてない繁栄と退廃を味わった。
+      </p>
+      <p>
+        近代に入り物流が発達すると、スパイスはより身近な存在となった。電子の海で
+        つながった現代の世界では、ネットワーク上でレシピが共有され、未知の調味料が
+        瞬時に家庭の食卓へ届く。まるでデジタルデータのように、香辛料は国境を越え、
+        人々の舌と心を刺激し続ける。
+      </p>
+      <p>
+        こうして時代を超えて受け継がれてきたスパイスの歴史は、今や電脳空間と融合
+        し、新たな物語を紡いでいる。ネオンが瞬く退廃的な街角で香り立つスパイスは、
+        遥か昔の交易路を彷彿とさせながら、未来への可能性をも感じさせるのである。
+      </p>
+    </div>
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        for (let i = 0; i < 25; i++) {
+          const p = document.createElement("div");
+          p.className = "particle";
+          p.style.left = Math.random() * 100 + "vw";
+          p.style.top = Math.random() * 100 + "vh";
+          p.style.animationDelay = Math.random() * 5 + "s";
+          document.body.appendChild(p);
+        }
+      });
+    </script>
+  </body>
 </html>
